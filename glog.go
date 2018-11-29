@@ -830,7 +830,7 @@ func (sb *syncBuffer) rotateFile(now time.Time) error {
 	if sb.file != nil {
 		sb.Flush()
 		sb.file.Close()
-		os.remove(sb.file.Name())
+		os.Remove(sb.file.Name())
 	}
 	var err error
 	sb.file, _, err = create(severityName[sb.sev], now)
